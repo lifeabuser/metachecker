@@ -1,1 +1,30 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>@fivem.</title>
+<link rel=icon type=image/png href=https://i.pinimg.com/564x/62/64/ba/6264baff1f0c1ad29baa7e3fb25e1828.jpg>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css>
+<style>body{background-color:#0e0e0e;color:#fff;font-family:Arial,sans-serif;margin:0;padding:0}h1{border-radius:10px;padding:10px;width:25%;text-align:center;margin:15px auto;transition:.5s;animation:FADE-IN 8s infinite}@-webkit-keyframes FADE-IN{0%{opacity:0;scale:1.0}50%{opacity:1;scale:1.05}100%{opacity:0;scale:1.0}}h1:hover{padding:10px;width:25%;text-align:center;letter-spacing:2px;scale:1.05;margin:15px auto;cursor:grab}#container{display:flex;justify-content:center;align-items:center;flex-direction:column;height:80vh}#dropArea{border:2px solid #ededed7a;border-radius:10px;padding:80px;margin-bottom:20px;width:40%;text-align:center;font-size:20px;cursor:pointer;transition:.5s;position:relative}#dropArea:hover{background-color:#fff;color:#000}#output{background-color:#222;border-radius:10px;padding:10px;width:25%;text-align:center;opacity:0;transition:opacity .5s ease-in-out}.detection{margin-top:5px;padding:5px;display:flex;align-items:center;justify-content:flex-start}.detection img{width:18px;height:18px;margin-right:10px}.detection p{margin:0;font-size:18px;text-align:left;width:100%}#fileInput{display:none}.footer{display:flex;justify-content:center;position:fixed;bottom:20px;left:0;right:0}.footer a{margin:0 10px;font-size:20px;text-decoration:none;color:#c4c4c4;padding:10px 20px;border-radius:5px;font-weight:700;transition:.3s ease}.footer a:hover{color:#fff;scale:1.05}.footer a.paypal{color:#c4c4c4}.footer a.paypal:hover{scale:1.05;color:#fff}</style>
+</head>
+<body>
+<h1>Meta Checker</h1>
+<div id=container>
+<input type=file id=fileInput>
+<div id=dropArea style=display:flex;align-items:center;justify-content:flex-start;text-align:left>
+<i class="fas fa-cloud-upload-alt" style=font-size:60px;flex-grow:0;flex-shrink:0;margin-right:20px></i>
+<div>
+<h2 class="text-base text-white group-hover:text-black" style=font-size:20px;margin-bottom:5px>Drag &amp; drop your <strong>.meta</strong> file here</h2>
+<h2 class="text-sm italic text-white group-hover:text-black" style=font-size:12px;font-weight:50;margin-top:5px>...or click on this box to select a file from your device</h2>
+</div>
+</div>
+<div id=output></div>
+</div>
+<div class=footer>
+<a href=https://discord.gg/cursedrp target=_blank><i class="fab fa-discord"></i></a>
+<a class=paypal href=https://www.paypal.me/str2fe target=_blank><i class="fab fa-paypal"></i></a>
+</div>
 <script>var dropArea=document.getElementById("dropArea"),output=document.getElementById("output"),fileInput=document.getElementById("fileInput");function preventDefaults(e){e.preventDefault(),e.stopPropagation()}function highlight(){dropArea.style.backgroundColor="#525252",dropArea.style.color="#fff"}function unhighlight(){dropArea.style.backgroundColor="",dropArea.style.color=""}function handleDrop(e){handleFiles(e.dataTransfer.files)}function handleFiles(e){if(0!==e.length){var t=e[0],a=new FileReader;a.onload=function(e){var t=e.target.result,a=t.match(/<fMass value="(\d+\.\d+)" \/>/),n=/<SubHandlingData>/.test(t);output.innerHTML="",a&&parseFloat(a[1])>5e3?output.innerHTML+='<div class="detection"><img src="https://cdn.discordapp.com/attachments/500023298416181283/1211021737408331827/check-circle.png?ex=65ecaee1&is=65da39e1&hm=13c0ac2af109261d2c30d2b1974ea963fdca091fd9ffc88bd7a5a5b4f01f3f31&" alt="Icon"> <p>Vehicles with mass over 5000 found.</p></div>':output.innerHTML+='<div class="detection"><img src="https://novonode.com/assets/images/pages/shared-hosting/check-circle.svg" alt="Icon"> <p>No vehicles with mass over 5000 found.</p></div>',output.innerHTML+=n?'<div class="detection"><img src="https://cdn.discordapp.com/attachments/500023298416181283/1211021737408331827/check-circle.png?ex=65ecaee1&is=65da39e1&hm=13c0ac2af109261d2c30d2b1974ea963fdca091fd9ffc88bd7a5a5b4f01f3f31&" alt="Icon"> <p>Flight handling data found.</p></div>':'<div class="detection"><img src="https://novonode.com/assets/images/pages/shared-hosting/check-circle.svg" alt="Icon"> <p>No flight handling data found.</p></div>',output.style.opacity=1,setTimeout((function(){output.style.opacity=0}),2500)},a.readAsText(t)}}["dragenter","dragover","dragleave","drop"].forEach((e=>{dropArea.addEventListener(e,preventDefaults,!1),document.body.addEventListener(e,preventDefaults,!1)})),["dragenter","dragover"].forEach((e=>{dropArea.addEventListener(e,highlight,!1)})),["dragleave","drop"].forEach((e=>{dropArea.addEventListener(e,unhighlight,!1)})),dropArea.addEventListener("drop",handleDrop,!1),dropArea.addEventListener("click",(function(){fileInput.click()})),fileInput.addEventListener("change",(function(){handleFiles(this.files)}))</script>
+</body>
+</html>
