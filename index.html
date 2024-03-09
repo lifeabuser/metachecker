@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@fivem.</title>
+    <link rel="icon" type="image/png" href="https://i.pinimg.com/564x/62/64/ba/6264baff1f0c1ad29baa7e3fb25e1828.jpg">
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <h1>Meta Checker</h1>
+    <div id="container">
+        <input type="file" id="fileInput">
+        <div id="dropArea" style="display: flex; align-items: center; justify-content: flex-start; text-align: left;">
+            <i class="fas fa-cloud-upload-alt" style="font-size: 60px; flex-grow: 0; flex-shrink: 0; margin-right: 20px;"></i>
+            <div>
+                <h2 class="text-base text-white group-hover:text-black" style="font-size: 20px; margin-bottom: 5px;">Drag &amp; drop your <strong>.meta</strong> file here</h2>
+                <h2 class="text-sm italic text-white group-hover:text-black" style="font-size: 12px; font-weight: 50; margin-top: 5px;">...or click on this box to select a file from your device</h2>
+            </div>
+        </div>
+        <div id="output"></div>
+    </div>
+    <div id="notification" class="notification">
+        <img src="./assets/bad.png" alt="Notification Icon">
+        <span id="notificationMessage"></span>
+    </div>
+    <div class="footer">
+        <a href="https://discord.gg/cursedrp" target="_blank"><i class="fab fa-discord"></i></a>
+        <a class="paypal" href="https://www.paypal.me/str2fe" target="_blank"><i class="fab fa-paypal"></i></a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
